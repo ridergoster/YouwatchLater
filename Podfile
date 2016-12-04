@@ -6,7 +6,7 @@ target 'YouwatchLater' do
   use_frameworks!
 
   # Pods for YouwatchLater
-  pod 'YouTubePlayer', :git => 'https://github.com/memetcircus/Swift-YouTube-Player.git', :branch =>'Loading-spinner'
+  pod 'YouTubePlayer', :git => 'https://github.com/memetcircus/Swift-YouTube-Player.git'
   pod 'SwiftyJSON'
   pod 'Alamofire', '~> 4.0'
 end

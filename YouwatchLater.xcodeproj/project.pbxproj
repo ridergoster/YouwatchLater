@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		516F1D347D40E23AF43F851E /* Pods_YouwatchLater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768439EB4943D1FA3BF99893 /* Pods_YouwatchLater.framework */; };
 		EF63D14A1DDCAF7F0044D6C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF63D1491DDCAF7F0044D6C7 /* AppDelegate.swift */; };
-		EF63D14C1DDCAF7F0044D6C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF63D14B1DDCAF7F0044D6C7 /* ViewController.swift */; };
-		EF63D14F1DDCAF7F0044D6C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF63D14D1DDCAF7F0044D6C7 /* Main.storyboard */; };
 		EF63D1521DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF63D1501DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodeld */; };
 		EF63D1541DDCAF7F0044D6C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF63D1531DDCAF7F0044D6C7 /* Assets.xcassets */; };
-		EF63D1571DDCAF7F0044D6C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF63D1551DDCAF7F0044D6C7 /* LaunchScreen.storyboard */; };
 		EF63D1601DDCB02D0044D6C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF63D15F1DDCB02D0044D6C7 /* CoreData.framework */; };
+		EF96F9EA1DF46C1000ADA251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF96F9E91DF46C1000ADA251 /* Main.storyboard */; };
+		EF96F9EC1DF46C2B00ADA251 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF96F9EB1DF46C2B00ADA251 /* LaunchScreen.storyboard */; };
+		EF96F9F01DF478FB00ADA251 /* YouWatchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96F9EF1DF478FB00ADA251 /* YouWatchTableViewController.swift */; };
+		EF96F9F21DF4909B00ADA251 /* YoutWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96F9F11DF4909B00ADA251 /* YoutWatchCell.swift */; };
+		EF96FA001DF4A32100ADA251 /* YouWatchPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96F9FF1DF4A32100ADA251 /* YouWatchPlayerViewController.swift */; };
+		EF96FA021DF4B07700ADA251 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = EF96FA011DF4B07700ADA251 /* YTPlayer.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +25,16 @@
 		768439EB4943D1FA3BF99893 /* Pods_YouwatchLater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouwatchLater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF63D1461DDCAF7F0044D6C7 /* YouwatchLater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouwatchLater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF63D1491DDCAF7F0044D6C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF63D14B1DDCAF7F0044D6C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EF63D14E1DDCAF7F0044D6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF63D1511DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YouwatchLater.xcdatamodel; sourceTree = "<group>"; };
 		EF63D1531DDCAF7F0044D6C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EF63D1561DDCAF7F0044D6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF63D1581DDCAF7F0044D6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF63D15F1DDCB02D0044D6C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EF96F9E91DF46C1000ADA251 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EF96F9EB1DF46C2B00ADA251 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF96F9EF1DF478FB00ADA251 /* YouWatchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWatchTableViewController.swift; sourceTree = "<group>"; };
+		EF96F9F11DF4909B00ADA251 /* YoutWatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutWatchCell.swift; sourceTree = "<group>"; };
+		EF96F9FF1DF4A32100ADA251 /* YouWatchPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWatchPlayerViewController.swift; sourceTree = "<group>"; };
+		EF96FA011DF4B07700ADA251 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YTPlayer.html; sourceTree = "<group>"; };
 		F9D3AB747A2CACFE156420BC /* Pods-YouwatchLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouwatchLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-YouwatchLater/Pods-YouwatchLater.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,13 +81,16 @@
 		EF63D1481DDCAF7F0044D6C7 /* YouwatchLater */ = {
 			isa = PBXGroup;
 			children = (
+				EF96FA011DF4B07700ADA251 /* YTPlayer.html */,
 				EF63D1491DDCAF7F0044D6C7 /* AppDelegate.swift */,
-				EF63D14B1DDCAF7F0044D6C7 /* ViewController.swift */,
-				EF63D14D1DDCAF7F0044D6C7 /* Main.storyboard */,
 				EF63D1531DDCAF7F0044D6C7 /* Assets.xcassets */,
-				EF63D1551DDCAF7F0044D6C7 /* LaunchScreen.storyboard */,
 				EF63D1581DDCAF7F0044D6C7 /* Info.plist */,
 				EF63D1501DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodeld */,
+				EF96F9E91DF46C1000ADA251 /* Main.storyboard */,
+				EF96F9EB1DF46C2B00ADA251 /* LaunchScreen.storyboard */,
+				EF96F9EF1DF478FB00ADA251 /* YouWatchTableViewController.swift */,
+				EF96F9F11DF4909B00ADA251 /* YoutWatchCell.swift */,
+				EF96F9FF1DF4A32100ADA251 /* YouWatchPlayerViewController.swift */,
 			);
 			path = YouwatchLater;
 			sourceTree = "<group>";
@@ -157,9 +166,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF63D1571DDCAF7F0044D6C7 /* LaunchScreen.storyboard in Resources */,
 				EF63D1541DDCAF7F0044D6C7 /* Assets.xcassets in Resources */,
-				EF63D14F1DDCAF7F0044D6C7 /* Main.storyboard in Resources */,
+				EF96F9EC1DF46C2B00ADA251 /* LaunchScreen.storyboard in Resources */,
+				EF96FA021DF4B07700ADA251 /* YTPlayer.html in Resources */,
+				EF96F9EA1DF46C1000ADA251 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,32 +228,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF63D14C1DDCAF7F0044D6C7 /* ViewController.swift in Sources */,
 				EF63D14A1DDCAF7F0044D6C7 /* AppDelegate.swift in Sources */,
+				EF96FA001DF4A32100ADA251 /* YouWatchPlayerViewController.swift in Sources */,
 				EF63D1521DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodeld in Sources */,
+				EF96F9F21DF4909B00ADA251 /* YoutWatchCell.swift in Sources */,
+				EF96F9F01DF478FB00ADA251 /* YouWatchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		EF63D14D1DDCAF7F0044D6C7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF63D14E1DDCAF7F0044D6C7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EF63D1551DDCAF7F0044D6C7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF63D1561DDCAF7F0044D6C7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EF63D1591DDCAF7F0044D6C7 /* Debug */ = {

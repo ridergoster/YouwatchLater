@@ -1,28 +1,27 @@
 PODS:
-  - Alamofire (4.1.0)
+  - Alamofire (4.2.0)
   - SwiftyJSON (3.1.3)
   - YouTubePlayer (0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - SwiftyJSON
-  - YouTubePlayer (from `https://github.com/memetcircus/Swift-YouTube-Player.git`, branch `Loading-spinner`)
+  - YouTubePlayer (from `https://github.com/memetcircus/Swift-YouTube-Player.git`)
 
 EXTERNAL SOURCES:
   YouTubePlayer:
-    :branch: Loading-spinner
     :git: https://github.com/memetcircus/Swift-YouTube-Player.git
 
 CHECKOUT OPTIONS:
   YouTubePlayer:
-    :commit: 8dfb65091dd10165e5be34df391e2c6efc91caa9
+    :commit: dd9aaf51859e1f72f046f9c27606535e6da6b9c4
     :git: https://github.com/memetcircus/Swift-YouTube-Player.git
 
 SPEC CHECKSUMS:
-  Alamofire: e266cf991b933498df791e645e0d8ac294492153
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   YouTubePlayer: f0afebef31a1793cce734220a5a311ba29ca4a7f
 
-PODFILE CHECKSUM: cea40728f69e7a15ec6bb5c114a635cf2967bb47
+PODFILE CHECKSUM: a775fe346dc7e62061b61183c53d04984048f6b1
 
 COCOAPODS: 1.1.1
