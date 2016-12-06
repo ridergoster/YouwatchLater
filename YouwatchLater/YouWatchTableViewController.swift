@@ -13,6 +13,8 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
 
     
     var items = [NSDictionary]()
+    var query: String = ""
+    var pageToken: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,19 +39,15 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         print(searchBar.text!)
         if let searchText = searchBar.text {
-            Alamofire.request("https://www.googleapis.com/youtube/v3/search?type=video&maxResults=10&part=snippet&key=AIzaSyDown7kSOnL2Fs9TOeoYtFpC11qVAxTbps&q=\(searchText)").validate().responseJSON { response in
-                switch response.result {
-                    case .success:
-                        print("Validation Successful")
-                        if let result = response.result.value {
-                            let JSON = result as! NSDictionary
-                            let videos = JSON["items"] as! [NSDictionary]
-                            self.items = videos
-                            self.tableView.reloadData()
-                        }
-                    case .failure(let error):
-                        print(error)
+            if let searchQuery = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+                if (self.numberOfSections(in: self.tableView) > 0 ) {
+                    let top = IndexPath(row: NSNotFound, section: 0)
+                    self.tableView.scrollToRow(at: top, at: .top, animated: true)
                 }
+                self.query = searchQuery
+                self.pageToken = ""
+                self.items = []
+                self.fetchData()
             }
         }
         searchBar.endEditing(true)
@@ -91,11 +89,40 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
         
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastElement = self.items.count - 1
+        if indexPath.row == lastElement {
+            
+            print("load more data")
+            self.fetchData()
+            // handle your logic here to get more items, add it to dataSource and reload tableview
+        }
+    }
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVideo" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! YouWatchPlayerViewController
                 controller.videoId = (self.items[indexPath.row]["id"] as! NSDictionary)["videoId"] as! String
+            }
+        }
+    }
+    
+    private func fetchData() {
+        Alamofire.request("https://www.googleapis.com/youtube/v3/search?type=video&maxResults=10&part=snippet&key=AIzaSyDown7kSOnL2Fs9TOeoYtFpC11qVAxTbps&q=\(self.query)&pageToken=\(self.pageToken)").validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    self.pageToken = JSON["nextPageToken"] as! String
+                    let videos = JSON["items"] as! [NSDictionary]
+                    self.items.append(contentsOf: videos)
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }
