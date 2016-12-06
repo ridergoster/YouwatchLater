@@ -72,7 +72,7 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
         if items.count > 0 {
             let video = items[indexPath.row]
             let snippet = video["snippet"] as! NSDictionary
-            let imgURL = URL(string: ((snippet["thumbnails"] as! NSDictionary)["default"] as! NSDictionary)["url"] as! String)
+            let imgURL = URL(string: ((snippet["thumbnails"] as! NSDictionary)["medium"] as! NSDictionary)["url"] as! String)
             
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imgURL!)
