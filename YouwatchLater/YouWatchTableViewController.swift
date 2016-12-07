@@ -66,7 +66,6 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
     
     // called when keyboard search button pressed
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
-        print(searchBar.text!)
         self.isList = false
         if let searchText = searchBar.text {
             if let searchQuery = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
@@ -122,7 +121,6 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastElement = self.items.count - 1
         if indexPath.row == lastElement && self.isList == false {
-            print("load more data")
             self.fetchData()
         }
     }
@@ -140,7 +138,6 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
         Alamofire.request("https://www.googleapis.com/youtube/v3/search?type=video&maxResults=10&part=snippet&key=AIzaSyDown7kSOnL2Fs9TOeoYtFpC11qVAxTbps&q=\(self.query)&pageToken=\(self.pageToken)").validate().responseJSON { response in
             switch response.result {
             case .success:
-                print("Validation Successful")
                 if let result = response.result.value {
                     if let context = DataManager.shared.objectContext {
                         let JSON = result as! NSDictionary
@@ -157,7 +154,6 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
                             video.desc = snippet["description"] as? String
                             video.imgUrl = ((snippet["thumbnails"] as! NSDictionary)["medium"] as! NSDictionary)    ["url"] as? String
                         
-                            print(video)
                             self.items.append(video)
                         }
                         self.tableView.reloadData()

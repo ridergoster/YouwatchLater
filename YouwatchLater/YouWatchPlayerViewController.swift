@@ -152,10 +152,7 @@ class YouWatchPlayerViewController: UIViewController, YouTubePlayerDelegate {
                                                     content: content, trigger: trigger)
                 center.add(request, withCompletionHandler: { (error) in
                     if let error = error {
-                        print("error oups !")
                         print(error)
-                    } else {
-                        print("done !")
                     }
                 })
             }
