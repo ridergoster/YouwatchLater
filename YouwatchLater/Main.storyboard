@@ -12,7 +12,7 @@
         <!--YouWatchLater-->
         <scene sceneID="XoI-N8-ezV">
             <objects>
-                <tableViewController id="dA1-Rz-v5c" customClass="YouWatchTableViewController" customModule="YouwatchLater" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dA1-Rz-v5c" customClass="YouWatchTableViewController" customModule="YouwatchLater" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="jAf-wS-WRi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,18 +30,18 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="msA-DT-kfy" userLabel="title">
-                                            <rect key="frame" x="135" y="4" width="143" height="40"/>
+                                            <rect key="frame" x="133" y="3" width="144" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" identifier="titleLabel"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k8y-lS-Ki1" userLabel="description">
-                                            <rect key="frame" x="135" y="55" width="152" height="40"/>
+                                            <rect key="frame" x="132" y="39" width="152" height="51"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" identifier="descriptionLabel"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -61,14 +61,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="YouWatchLater" id="nnY-xu-2o2">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="TIo-i2-GiU"/>
+                        <barButtonItem key="rightBarButtonItem" title="★" id="TIo-i2-GiU">
+                            <connections>
+                                <action selector="clickStar:" destination="dA1-Rz-v5c" id="GNL-IA-cax"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85J-aU-l31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1285" y="-813"/>
         </scene>
-        <!--You Watch Player View Controller-->
+        <!--YouWatchLater-->
         <scene sceneID="Er4-Jo-zy0">
             <objects>
                 <viewController id="pnV-R5-8Do" customClass="YouWatchPlayerViewController" customModule="YouwatchLater" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,32 +81,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" id="Lh8-Uq-jMk" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="68" width="320" height="190"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="219"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fZt-tu-3e2">
-                                <rect key="frame" x="140" y="378" width="40" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SYU-UD-k1s">
+                                <rect key="frame" x="16" y="284" width="288" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LOAD"/>
-                                <connections>
-                                    <action selector="onClick:" destination="pnV-R5-8Do" eventType="touchDown" id="Cwk-BZ-hWc"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tlX-3I-TpK">
+                                <rect key="frame" x="16" y="359" width="288" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vfE-Du-MvT">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="gls-XK-dBK"/>
+                    <navigationItem key="navigationItem" title="YouWatchLater" id="vfE-Du-MvT">
+                        <barButtonItem key="rightBarButtonItem" title="+" id="gls-XK-dBK">
+                            <connections>
+                                <action selector="onClick:" destination="pnV-R5-8Do" id="e6b-J8-VHq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="loadVideo" destination="fZt-tu-3e2" id="tWT-nU-24v"/>
+                        <outlet property="descLabel" destination="tlX-3I-TpK" id="fyL-VI-Z8L"/>
+                        <outlet property="titleLabel" destination="SYU-UD-k1s" id="sD0-nH-uXc"/>
                         <outlet property="youtubePlayer" destination="Lh8-Uq-jMk" id="iOz-Mr-A2e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk4-5V-yDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="-813"/>
+            <point key="canvasLocation" x="1999" y="-468"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vWc-1r-XXT">

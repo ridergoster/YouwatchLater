@@ -14,10 +14,13 @@
 		EF63D1601DDCB02D0044D6C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF63D15F1DDCB02D0044D6C7 /* CoreData.framework */; };
 		EF96F9EA1DF46C1000ADA251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF96F9E91DF46C1000ADA251 /* Main.storyboard */; };
 		EF96F9EC1DF46C2B00ADA251 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF96F9EB1DF46C2B00ADA251 /* LaunchScreen.storyboard */; };
-		EF96F9F01DF478FB00ADA251 /* YouWatchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96F9EF1DF478FB00ADA251 /* YouWatchTableViewController.swift */; };
 		EF96F9F21DF4909B00ADA251 /* YoutWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96F9F11DF4909B00ADA251 /* YoutWatchCell.swift */; };
 		EF96FA001DF4A32100ADA251 /* YouWatchPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96F9FF1DF4A32100ADA251 /* YouWatchPlayerViewController.swift */; };
 		EF96FA021DF4B07700ADA251 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = EF96FA011DF4B07700ADA251 /* YTPlayer.html */; };
+		EFDF4AF31DF70F25008AC0D9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF4AF21DF70F25008AC0D9 /* DataManager.swift */; };
+		EFDF4AF51DF710DB008AC0D9 /* FileManager+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF4AF41DF710DB008AC0D9 /* FileManager+Document.swift */; };
+		EFDF4AF71DF7112B008AC0D9 /* YouWatchVideo+Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF4AF61DF7112B008AC0D9 /* YouWatchVideo+Function.swift */; };
+		EFDF4B3D1DF79EBE008AC0D9 /* YouWatchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF4B3C1DF79EBE008AC0D9 /* YouWatchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +34,13 @@
 		EF63D15F1DDCB02D0044D6C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EF96F9E91DF46C1000ADA251 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF96F9EB1DF46C2B00ADA251 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EF96F9EF1DF478FB00ADA251 /* YouWatchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWatchTableViewController.swift; sourceTree = "<group>"; };
 		EF96F9F11DF4909B00ADA251 /* YoutWatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutWatchCell.swift; sourceTree = "<group>"; };
 		EF96F9FF1DF4A32100ADA251 /* YouWatchPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWatchPlayerViewController.swift; sourceTree = "<group>"; };
 		EF96FA011DF4B07700ADA251 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YTPlayer.html; sourceTree = "<group>"; };
+		EFDF4AF21DF70F25008AC0D9 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		EFDF4AF41DF710DB008AC0D9 /* FileManager+Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Document.swift"; sourceTree = "<group>"; };
+		EFDF4AF61DF7112B008AC0D9 /* YouWatchVideo+Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YouWatchVideo+Function.swift"; sourceTree = "<group>"; };
+		EFDF4B3C1DF79EBE008AC0D9 /* YouWatchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWatchTableViewController.swift; sourceTree = "<group>"; };
 		F9D3AB747A2CACFE156420BC /* Pods-YouwatchLater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouwatchLater.release.xcconfig"; path = "Pods/Target Support Files/Pods-YouwatchLater/Pods-YouwatchLater.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +87,7 @@
 		EF63D1481DDCAF7F0044D6C7 /* YouwatchLater */ = {
 			isa = PBXGroup;
 			children = (
+				EFDF4B3C1DF79EBE008AC0D9 /* YouWatchTableViewController.swift */,
 				EF96FA011DF4B07700ADA251 /* YTPlayer.html */,
 				EF63D1491DDCAF7F0044D6C7 /* AppDelegate.swift */,
 				EF63D1531DDCAF7F0044D6C7 /* Assets.xcassets */,
@@ -88,9 +95,11 @@
 				EF63D1501DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodeld */,
 				EF96F9E91DF46C1000ADA251 /* Main.storyboard */,
 				EF96F9EB1DF46C2B00ADA251 /* LaunchScreen.storyboard */,
-				EF96F9EF1DF478FB00ADA251 /* YouWatchTableViewController.swift */,
 				EF96F9F11DF4909B00ADA251 /* YoutWatchCell.swift */,
 				EF96F9FF1DF4A32100ADA251 /* YouWatchPlayerViewController.swift */,
+				EFDF4AF21DF70F25008AC0D9 /* DataManager.swift */,
+				EFDF4AF41DF710DB008AC0D9 /* FileManager+Document.swift */,
+				EFDF4AF61DF7112B008AC0D9 /* YouWatchVideo+Function.swift */,
 			);
 			path = YouwatchLater;
 			sourceTree = "<group>";
@@ -229,10 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF63D14A1DDCAF7F0044D6C7 /* AppDelegate.swift in Sources */,
+				EFDF4AF31DF70F25008AC0D9 /* DataManager.swift in Sources */,
 				EF96FA001DF4A32100ADA251 /* YouWatchPlayerViewController.swift in Sources */,
+				EFDF4AF71DF7112B008AC0D9 /* YouWatchVideo+Function.swift in Sources */,
+				EFDF4AF51DF710DB008AC0D9 /* FileManager+Document.swift in Sources */,
+				EFDF4B3D1DF79EBE008AC0D9 /* YouWatchTableViewController.swift in Sources */,
 				EF63D1521DDCAF7F0044D6C7 /* YouwatchLater.xcdatamodeld in Sources */,
 				EF96F9F21DF4909B00ADA251 /* YoutWatchCell.swift in Sources */,
-				EF96F9F01DF478FB00ADA251 /* YouWatchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

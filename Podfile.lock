@@ -1,10 +1,12 @@
 PODS:
   - Alamofire (4.2.0)
+  - SCLAlertView (0.7.0)
   - SwiftyJSON (3.1.3)
   - YouTubePlayer (0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - SCLAlertView
   - SwiftyJSON
   - YouTubePlayer (from `https://github.com/memetcircus/Swift-YouTube-Player.git`)
 
@@ -19,9 +21,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   YouTubePlayer: f0afebef31a1793cce734220a5a311ba29ca4a7f
 
-PODFILE CHECKSUM: a775fe346dc7e62061b61183c53d04984048f6b1
+PODFILE CHECKSUM: 29a6145264065dc87654d1cf298812e13ac74cbb
 
 COCOAPODS: 1.1.1

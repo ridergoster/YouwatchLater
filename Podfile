@@ -8,5 +8,6 @@ target 'YouwatchLater' do
   # Pods for YouwatchLater
   pod 'YouTubePlayer', :git => 'https://github.com/memetcircus/Swift-YouTube-Player.git'
   pod 'SwiftyJSON'
+  pod 'SCLAlertView'
   pod 'Alamofire', '~> 4.0'
 end

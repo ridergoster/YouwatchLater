@@ -8,13 +8,16 @@
 
 import UIKit
 import Alamofire
+import UserNotifications
+import CoreData
 
 class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
 
     
-    var items = [NSDictionary]()
+    var items = [YouWatchVideo]()
     var query: String = ""
     var pageToken: String = ""
+    var isList: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +29,45 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
         
         self.navigationItem.titleView = searchBar
         
-        tableView.reloadData()
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound];
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadSavedVideo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.isList == true {
+            loadSavedVideo()
+        }
+    }
+    
+    public func loadSavedVideo() {
+        self.isList = true
+        if let context = DataManager.shared.objectContext {
+            let request: NSFetchRequest<YouWatchVideo> = YouWatchVideo.fetchRequest()
+            if let results = try? context.fetch(request) {
+                self.items = results
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func clickStar(_ sender: UIBarButtonItem) {
+        loadSavedVideo()
     }
     
     // called when keyboard search button pressed
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         print(searchBar.text!)
+        self.isList = false
         if let searchText = searchBar.text {
             if let searchQuery = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
                 if (self.numberOfSections(in: self.tableView) > 0 ) {
@@ -71,8 +101,8 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
         
         if items.count > 0 {
             let video = items[indexPath.row]
-            let snippet = video["snippet"] as! NSDictionary
-            let imgURL = URL(string: ((snippet["thumbnails"] as! NSDictionary)["medium"] as! NSDictionary)["url"] as! String)
+            
+            let imgURL = URL(string: video.imgUrl!)
             
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imgURL!)
@@ -80,8 +110,8 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
                     cell.thumbnail.image = UIImage(data: data!)
                 }
             }
-            cell.titleLabel.text = (snippet["title"] as! String)
-            cell.descriptionLabel.text = (snippet["description"] as! String)
+            cell.titleLabel.text = video.name!
+            cell.descriptionLabel.text = video.desc!
         }
         
         
@@ -91,20 +121,17 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastElement = self.items.count - 1
-        if indexPath.row == lastElement {
-            
+        if indexPath.row == lastElement && self.isList == false {
             print("load more data")
             self.fetchData()
-            // handle your logic here to get more items, add it to dataSource and reload tableview
         }
     }
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVideo" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! YouWatchPlayerViewController
-                controller.videoId = (self.items[indexPath.row]["id"] as! NSDictionary)["videoId"] as! String
+                controller.video = self.items[indexPath.row]
             }
         }
     }
@@ -115,11 +142,26 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
             case .success:
                 print("Validation Successful")
                 if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    self.pageToken = JSON["nextPageToken"] as! String
-                    let videos = JSON["items"] as! [NSDictionary]
-                    self.items.append(contentsOf: videos)
-                    self.tableView.reloadData()
+                    if let context = DataManager.shared.objectContext {
+                        let JSON = result as! NSDictionary
+                        self.pageToken = JSON["nextPageToken"] as! String
+                        let videos = JSON["items"] as! [NSDictionary]
+                        for data in videos {
+                            
+                            let video: YouWatchVideo = YouWatchVideo.init(needSave: false, context: context);
+
+                            let snippet = data["snippet"] as! NSDictionary
+                        
+                            video.videoId = (data["id"] as! NSDictionary)["videoId"] as? String
+                            video.name = snippet["title"] as? String
+                            video.desc = snippet["description"] as? String
+                            video.imgUrl = ((snippet["thumbnails"] as! NSDictionary)["medium"] as! NSDictionary)    ["url"] as? String
+                        
+                            print(video)
+                            self.items.append(video)
+                        }
+                        self.tableView.reloadData()
+                    }
                 }
             case .failure(let error):
                 print(error)
