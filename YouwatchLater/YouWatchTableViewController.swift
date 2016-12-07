@@ -153,6 +153,7 @@ class YouWatchTableViewController: UITableViewController, UISearchBarDelegate {
                             video.name = snippet["title"] as? String
                             video.desc = snippet["description"] as? String
                             video.imgUrl = ((snippet["thumbnails"] as! NSDictionary)["medium"] as! NSDictionary)    ["url"] as? String
+                            video.channelName = snippet["channelTitle"] as? String
                         
                             self.items.append(video)
                         }

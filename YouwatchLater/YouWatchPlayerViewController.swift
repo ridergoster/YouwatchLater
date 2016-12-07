@@ -22,8 +22,11 @@ class YouWatchPlayerViewController: UIViewController, YouTubePlayerDelegate {
     
     @IBOutlet weak var descLabel: UILabel!
     
+    @IBOutlet weak var channelLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.navigationItem.hidesBackButton = true
         
@@ -41,6 +44,7 @@ class YouWatchPlayerViewController: UIViewController, YouTubePlayerDelegate {
             self.youtubePlayer.loadVideoID(data.videoId!)
             self.titleLabel.text = data.name!
             self.descLabel.text = data.desc!
+            self.channelLabel.text = data.channelName!
         }
         
     }
@@ -142,10 +146,16 @@ class YouWatchPlayerViewController: UIViewController, YouTubePlayerDelegate {
                 content.body = (self.video?.name)!
                 content.sound = UNNotificationSound.default()
                 
-                let date = Date(timeIntervalSinceNow: TimeInterval(length))
-                let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
                 
-                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+                let date = Date(timeIntervalSinceNow: TimeInterval(length))
+                var triggerRepeat: DateComponents
+                if length > 100 {
+                    triggerRepeat = Calendar.current.dateComponents([.weekday, .hour,.minute,.second,], from: date)
+                } else {
+                    triggerRepeat = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+                }
+
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerRepeat, repeats: true)
                 
                 let identifier = "Notification\(self.video?.videoId!)"
                 let request = UNNotificationRequest(identifier: identifier,

@@ -22,7 +22,7 @@ class DataManager: NSObject {
             if let model = NSManagedObjectModel(contentsOf: modelURL) {
                 let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
                 
-                if let dbURL = FileManager.documentURL(childPath: "YouwatchLater") {
+                if let dbURL = FileManager.documentURL(childPath: "YWLdb") {
                     _ = try? persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
                     let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
                     context.persistentStoreCoordinator = persistentStoreCoordinator
